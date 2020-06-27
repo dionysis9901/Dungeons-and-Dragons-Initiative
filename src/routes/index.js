@@ -1,20 +1,13 @@
 import React, { lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 
-// import AuthenticatedRoute from "./AuthenticatedRoute";
-// import NonAuthenticatedRoute from "./NonAuthenticatedRoute";
-
 // Load Routes dynamically for code splitting. Use webpackChunkName named chunks to better analyze the bundle size after building
-// const DashboardRoute = lazy(() =>
-//   import(/* webpackChunkName: "DashboardRoute" */ "routes/Dashboard")
-// );
+const GameRoute = lazy(() =>
+  import(/* webpackChunkName: "GameRoute" */ "routes/Game")
+);
 
-// const AccountRoute = lazy(() =>
-//   import(/* webpackChunkName: "AccountRoute" */ "routes/Account")
-// );
-
-export const Home = lazy(() =>
-  import(/* webpackChunkName: "Home1" */ "routes/Home")
+export const NotFound = lazy(() =>
+  import(/* webpackChunkName: "NotFound1" */ "routes/NotFound")
 );
 
 export const AppRoutes = () => {
@@ -22,7 +15,8 @@ export const AppRoutes = () => {
     // <Suspense>
     <Suspense fallback={null}>
       <Switch>
-        <Route component={Home} />
+        <Route path={"/"} exact component={GameRoute} />
+        <Route component={NotFound} />
       </Switch>
     </Suspense>
   );

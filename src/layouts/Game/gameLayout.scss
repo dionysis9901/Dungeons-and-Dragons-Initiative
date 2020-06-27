@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel&display=swap");
+
+.header,
+.footer {
+  background-color: #252525;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  &__title {
+    color: #ff0000;
+    font-size: 1.3em;
+    font-family: "Cinzel", serif;
+  }
+
+  &--logo {
+    width: 90px;
+    margin: 10px;
+  }
+}
+
+.footer {
+  &__appName {
+    color: #ff0000;
+    font-size: 1.4em;
+    font-family: "Cinzel", serif;
+  }
+
+  &__madeBy,
+  &__version {
+    font-size: 1.1em;
+    color: #af0404;
+  }
+
+  &__logo {
+    &--logo {
+      width: 80px;
+    }
+  }
+}

@@ -6,7 +6,7 @@ import store, { persistor } from "./store";
 import AppRoutes from "./routes";
 
 function App() {
-  // persistor.purge();
+  persistor.purge();
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
