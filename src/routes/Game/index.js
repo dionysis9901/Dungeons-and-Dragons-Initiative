@@ -3,8 +3,8 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 import MainLayout from "layouts/Game";
 // import { Loader } from "components";
 
-const HomeRoute = lazy(() =>
-  import(/* webpackChunkName: "HomeRoute" */ "routes/Game/Home")
+const SettingsRoute = lazy(() =>
+  import(/* webpackChunkName: "HomeRoute" */ "routes/Game/Settings")
 );
 
 const NotFoundRoute = lazy(() =>
@@ -17,7 +17,7 @@ export const Game = () => {
     <MainLayout>
       <Suspense>
         <Switch>
-          <Route path={`${match.url}`} component={HomeRoute} exact />
+          <Route path={`${match.url}`} component={SettingsRoute} exact />
           <Route component={NotFoundRoute} />
         </Switch>
       </Suspense>

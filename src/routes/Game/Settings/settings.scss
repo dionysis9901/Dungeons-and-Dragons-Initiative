@@ -1,0 +1,25 @@
+.settings {
+  height: 100vh;
+  padding: 10px;
+
+  &__playerForm,
+  &__mobForm {
+    padding: 5px;
+    font-family: "Cinzel", serif;
+    justify-content: center;
+  }
+
+  &__cards {
+    height: 100%;
+    border: 1px solid #dfdfdf;
+  }
+}
+.ant-input:hover,
+.ant-input:focus,
+.ant-input:active,
+.ant-input:visited {
+  border-color: #e40611;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 2px rgba(87, 168, 233, 0.2);
+  box-shadow: 0 0 0 2px rgba(87, 168, 233, 0.2);
+}
