@@ -17,10 +17,21 @@
   &--logo {
     width: 90px;
     margin: 10px;
+    cursor: pointer;
+    transition: 1s;
+  }
+
+  &--logo:hover {
+    transform: scale(1.1);
   }
 }
 
+.content {
+  height: calc(auto - 100px);
+}
+
 .footer {
+  height: 40vh;
   &__flex {
     display: flex;
     justify-content: space-evenly;
@@ -29,19 +40,19 @@
 
   &__appName {
     color: #ff0000;
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-family: "Cinzel", serif;
   }
 
   &__madeBy,
   &__version {
-    font-size: 1.1em;
+    font-size: 1em;
     color: #af0404;
   }
 
   &__logo {
     &--logo {
-      width: 80px;
+      width: 60px;
     }
   }
 
@@ -50,5 +61,14 @@
     &__item {
       margin: 4px;
     }
+  }
+}
+
+.formItem {
+  &__name {
+    width: 100px;
+  }
+  &__number {
+    width: 70px;
   }
 }

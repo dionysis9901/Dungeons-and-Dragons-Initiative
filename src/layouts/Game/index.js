@@ -23,9 +23,11 @@ export const MainLayout = ({ children }) => (
         />
         <p className={"header__title"}> INITIATIVES</p>
       </Header>
+
       <Content>
-        <div style={{ height: "calc(100vh - 55px)" }}>{children}</div>
+        <div className={"content"}>{children}</div>
       </Content>
+
       <Footer className={"footer"}>
         <div className={"footer__flex"}>
           <div>
