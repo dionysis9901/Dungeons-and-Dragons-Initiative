@@ -1,78 +1,56 @@
-// import { createAction, handleActions } from "redux-actions";
+import { createAction, handleActions } from "redux-actions";
 // import { getErrorMessage } from "modules/process";
 
-// /**
-//  * Teachers reducer
-//  * Handles teachers actions
-//  */
+/**
+ * Settings reducer
+ * Handles teachers actions
+ */
 
 // // ------------------------------------
 // // Constants
 // // ------------------------------------
-// export const TEACHERS_LOADED = "TEACHERS_LOADED";
-// export const TEACHERS_SUCCESS = "TEACHERS_SUCCESS";
-// export const TEACHERS_FAILED = "TEACHERS_FAILED";
-// export const TEACHERS_REQUEST = "TEACHERS_REQUEST";
+export const STORE_PLAYERS = "STORE_PLAYERS";
+export const STORE_MOBS = "STORE_MOBS";
 
 // // ------------------------------------
 // // Actions
 // // ------------------------------------
-// const teachersLoaded = createAction(TEACHERS_LOADED);
-// const teachersSuccess = createAction(TEACHERS_SUCCESS);
-// const teachersFailed = createAction(TEACHERS_FAILED);
-// const teachersRequest = createAction(TEACHERS_REQUEST);
-
-// const getTeachers = () => {
-//   return (dispatch) => {
-//     dispatch(teachersRequest());
-//   };
-// };
+const storePlayers = createAction(STORE_PLAYERS);
+const storeMobs = createAction(STORE_MOBS);
 
 // // ------------------------------------
 // // All actions
 // // ------------------------------------
 
-// export const actions = {
-//   teachersLoaded,
-//   getTeachers,
-// };
+export const actions = {
+  storePlayers,
+  storeMobs,
+};
 
 // // ------------------------------------
 // // Reducer
 // // ------------------------------------
 
-// const initialState = {
-//   teachers: [],
-//   errors: null,
-//   loading: false,
-// };
+const initialState = {
+  players: [],
+  mobs: [],
+  loading: true,
+};
 
-// export default handleActions(
-//   {
-//     TEACHERS_LOADED: (state) => {
-//       return {
-//         ...state,
-//       };
-//     },
-
-//     TEACHERS_REQUEST: (state) => {
-//       return { ...initialState, loading: true };
-//     },
-
-//     TEACHERS_SUCCESS: (state, { payload }) => {
-//       return {
-//         ...initialState,
-//         loading: false,
-//         teachers: payload,
-//       };
-//     },
-
-//     TEACHERS_FAILED: (state, { payload }) => {
-//       return {
-//         ...state,
-//         errors: payload,
-//       };
-//     },
-//   },
-//   initialState
-// );
+export default handleActions(
+  {
+    STORE_PLAYERS: (state, { payload }) => {
+      return {
+        ...initialState,
+        players: payload,
+      };
+    },
+    STORE_MOBS: (state, { payload }) => {
+      return {
+        ...initialState,
+        mobs: payload,
+      };
+    },
+  },
+  initialState
+);

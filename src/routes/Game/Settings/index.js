@@ -11,15 +11,19 @@ import {
   Divider,
 } from "antd";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
+import { actions as settingsActions } from "modules/settings";
+import { useSelector, useDispatch } from "react-redux";
 import "./settings.scss";
 
 export const Settings = () => {
-  const playersReady = (values) => {
-    console.log(values);
+  const dispatch = useDispatch();
+
+  const playersReady = (players) => {
+    dispatch(settingsActions.storePlayers(players));
   };
 
-  const mobsReady = (values) => {
-    console.log(values);
+  const mobsReady = (mobs) => {
+    dispatch(settingsActions.storeMobs(mobs));
   };
 
   return (
