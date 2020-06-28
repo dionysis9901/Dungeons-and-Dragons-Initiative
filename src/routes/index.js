@@ -15,7 +15,7 @@ export const AppRoutes = () => {
     // <Suspense>
     <Suspense fallback={null}>
       <Switch>
-        <Route path={"/"} exact component={GameRoute} />
+        <Route path={"/"} component={GameRoute} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>

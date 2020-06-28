@@ -1,15 +1,6 @@
 import React from "react";
-import {
-  Typography,
-  Form,
-  Input,
-  Button,
-  Space,
-  Card,
-  Row,
-  Col,
-  Divider,
-} from "antd";
+import { Link } from "react-router-dom";
+import { Typography, Form, Input, Button, Space, Card, Row, Col } from "antd";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import { actions as settingsActions } from "modules/settings";
 import { useSelector, useDispatch } from "react-redux";
@@ -271,9 +262,9 @@ export const Settings = () => {
         </Col>
       </Row>{" "}
       <div className={"settings__fightButton"}>
-        {playersReady && mobsReady ? (
+        {!playersReady && !mobsReady ? (
           <Button danger style={{ fontSize: "1.3em" }}>
-            FIGHT !{" "}
+            <Link to={`/Game/Play`}> FIGHT ! </Link>
           </Button>
         ) : (
           <Button disabled style={{ fontSize: "1.3em" }}>

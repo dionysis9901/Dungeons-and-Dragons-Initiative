@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Divider } from "antd";
+import { Layout } from "antd";
 import {
   GithubOutlined,
   LinkedinOutlined,

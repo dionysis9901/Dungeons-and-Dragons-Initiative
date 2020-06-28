@@ -4,7 +4,11 @@ import MainLayout from "layouts/Game";
 // import { Loader } from "components";
 
 const SettingsRoute = lazy(() =>
-  import(/* webpackChunkName: "HomeRoute" */ "routes/Game/Settings")
+  import(/* webpackChunkName: "SettingsRoute" */ "routes/Game/Settings")
+);
+
+const PlayRoute = lazy(() =>
+  import(/* webpackChunkName: "GameRoute" */ "routes/Game/Play")
 );
 
 const NotFoundRoute = lazy(() =>
@@ -17,7 +21,9 @@ export const Game = () => {
     <MainLayout>
       <Suspense>
         <Switch>
-          <Route path={`${match.url}`} component={SettingsRoute} exact />
+          <Route path={`${match.url}`} component={SettingsRoute} />
+          <Route path={`${match.url}/Settings`} component={SettingsRoute} />
+          <Route path={`${match.url}/Play`} component={PlayRoute} />
           <Route component={NotFoundRoute} />
         </Switch>
       </Suspense>
