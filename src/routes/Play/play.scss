@@ -1,0 +1,37 @@
+.play {
+  padding: 10px;
+  &__card {
+    padding: 5px;
+    font-family: "Cinzel", serif;
+  }
+}
+
+.player {
+  border-bottom: 1px solid #252525;
+  border-radius: 2px;
+  padding: 3px;
+  margin: 10px 5px;
+
+  &__playerList {
+    list-style-type: none;
+  }
+
+  &--name {
+    font-size: 1.3em;
+    margin: 2px 0;
+  }
+
+  &__actions {
+    &--initiative {
+      font-size: 1.6em;
+      border: 1px solid #252525;
+      padding: 2px 5px;
+      border-radius: 4px;
+      margin: 0px 10px;
+    }
+  }
+
+  &--inactive {
+    background-color: red;
+  }
+}

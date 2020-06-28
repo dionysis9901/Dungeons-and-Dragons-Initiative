@@ -12,11 +12,18 @@ export const Settings = () => {
     (state) => state && state.settings
   );
 
-  const playersFinish = (players) => {
+  const playersFinish = (playersArr) => {
+    const players = playersArr.players.map((player) => {
+      return { ...player, played: false };
+    });
+    console.log(players);
     dispatch(settingsActions.storePlayers(players));
   };
 
-  const mobsFinish = (mobs) => {
+  const mobsFinish = (mobsArr) => {
+    const mobs = mobsArr.mobs.map((mob) => {
+      return { ...mob, played: false };
+    });
     dispatch(settingsActions.storeMobs(mobs));
   };
 
@@ -31,14 +38,7 @@ export const Settings = () => {
           justifyContent: "space-evenly",
         }}
       >
-        <Col
-          style={{ margin: "10px 0" }}
-          xs={24}
-          sm={24}
-          md={11}
-          lg={11}
-          xl={11}
-        >
+        <Col style={{ margin: "10px 0" }} xs={24} sm={24} md={11} lg={9} xl={8}>
           <Card
             style={{ fontFamily: `"Cinzel", serif` }}
             className={"settings__cards"}
@@ -133,14 +133,7 @@ export const Settings = () => {
           </Card>
         </Col>
 
-        <Col
-          style={{ margin: "10px 0" }}
-          xs={24}
-          sm={24}
-          md={11}
-          lg={11}
-          xl={11}
-        >
+        <Col style={{ margin: "10px 0" }} xs={24} sm={24} md={11} lg={9} xl={8}>
           <Card className={"settings__cards"}>
             <div className={"settings__mobForm"}>
               <div className={"settings__mobForm__title"}>
@@ -262,7 +255,7 @@ export const Settings = () => {
         </Col>
       </Row>{" "}
       <div className={"settings__fightButton"}>
-        {!playersReady && !mobsReady ? (
+        {playersReady && mobsReady ? (
           <Button danger style={{ fontSize: "1.3em" }}>
             <Link to={`/Play`}> FIGHT ! </Link>
           </Button>
