@@ -34,21 +34,24 @@ export const actions = {
 const initialState = {
   players: [],
   mobs: [],
-  loading: true,
+  playersReady: false,
+  mobsReady: false,
 };
 
 export default handleActions(
   {
     STORE_PLAYERS: (state, { payload }) => {
       return {
-        ...initialState,
+        ...state,
         players: payload,
+        playersReady: true,
       };
     },
     STORE_MOBS: (state, { payload }) => {
       return {
-        ...initialState,
+        ...state,
         mobs: payload,
+        mobsReady: true,
       };
     },
   },

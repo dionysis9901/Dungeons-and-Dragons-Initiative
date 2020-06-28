@@ -17,12 +17,15 @@ import "./settings.scss";
 
 export const Settings = () => {
   const dispatch = useDispatch();
+  const { playersReady, mobsReady } = useSelector(
+    (state) => state && state.settings
+  );
 
-  const playersReady = (players) => {
+  const playersFinish = (players) => {
     dispatch(settingsActions.storePlayers(players));
   };
 
-  const mobsReady = (mobs) => {
+  const mobsFinish = (mobs) => {
     dispatch(settingsActions.storeMobs(mobs));
   };
 
@@ -56,7 +59,7 @@ export const Settings = () => {
               <Form
                 scrollToFirstError
                 name="dynamic_form_nest_item"
-                onFinish={playersReady}
+                onFinish={playersFinish}
                 autoComplete="yes"
               >
                 <Form.List name="players">
@@ -154,7 +157,7 @@ export const Settings = () => {
               </div>
               <Form
                 name="dynamic_form_nest_item"
-                onFinish={mobsReady}
+                onFinish={mobsFinish}
                 autoComplete="yes"
               >
                 <Form.List name="mobs">
@@ -213,7 +216,7 @@ export const Settings = () => {
                                 },
                               ]}
                             >
-                              <Input type="number" placeholder="HP" />
+                              <Input min={0} type="number" placeholder="HP" />
                             </Form.Item>
 
                             <Form.Item
@@ -228,7 +231,7 @@ export const Settings = () => {
                                 },
                               ]}
                             >
-                              <Input type="number" placeholder="xp" />
+                              <Input type="number" min={0} placeholder="xp" />
                             </Form.Item>
 
                             <MinusCircleOutlined
@@ -266,7 +269,18 @@ export const Settings = () => {
             </div>
           </Card>
         </Col>
-      </Row>
+      </Row>{" "}
+      <div className={"settings__fightButton"}>
+        {playersReady && mobsReady ? (
+          <Button danger style={{ fontSize: "1.3em" }}>
+            FIGHT !{" "}
+          </Button>
+        ) : (
+          <Button disabled style={{ fontSize: "1.3em" }}>
+            FIGHT !{" "}
+          </Button>
+        )}
+      </div>
     </div>
   );
 };

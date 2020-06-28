@@ -1,5 +1,6 @@
 .settings {
   padding: 30px 10px;
+
   &__playerForm,
   &__mobForm {
     padding: 5px;
@@ -12,7 +13,14 @@
     border: 1px solid #dfdfdf;
     margin: 10px;
   }
+
+  &__fightButton {
+    margin: 20px 0;
+    font-family: "Cinzel", serif;
+    text-align: center;
+  }
 }
+
 .ant-input:hover,
 .ant-input:focus,
 .ant-input:active,
