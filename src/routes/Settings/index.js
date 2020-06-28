@@ -264,7 +264,7 @@ export const Settings = () => {
       <div className={"settings__fightButton"}>
         {!playersReady && !mobsReady ? (
           <Button danger style={{ fontSize: "1.3em" }}>
-            <Link to={`/Game/Play`}> FIGHT ! </Link>
+            <Link to={`/Play`}> FIGHT ! </Link>
           </Button>
         ) : (
           <Button disabled style={{ fontSize: "1.3em" }}>

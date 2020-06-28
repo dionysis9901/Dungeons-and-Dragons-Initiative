@@ -1,24 +1,35 @@
 import React, { lazy, Suspense } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
+import MainLayout from "layouts/Game";
 
-// Load Routes dynamically for code splitting. Use webpackChunkName named chunks to better analyze the bundle size after building
-const GameRoute = lazy(() =>
-  import(/* webpackChunkName: "GameRoute" */ "routes/Game")
+// import { Loader } from "components";
+
+const SettingsRoute = lazy(() =>
+  import(/* webpackChunkName: "SettingsRoute" */ "routes/Settings")
 );
 
-export const NotFound = lazy(() =>
-  import(/* webpackChunkName: "NotFound1" */ "routes/NotFound")
+const PlayRoute = lazy(() =>
+  import(/* webpackChunkName: "GameRoute" */ "routes/Play")
+);
+
+const NotFoundRoute = lazy(() =>
+  import(/* webpackChunkName: "NotFound" */ "routes/NotFound")
 );
 
 export const AppRoutes = () => {
+  const match = useRouteMatch();
   return (
     // <Suspense>
-    <Suspense fallback={null}>
-      <Switch>
-        <Route path={"/"} component={GameRoute} />
-        <Route component={NotFound} />
-      </Switch>
-    </Suspense>
+    <MainLayout>
+      <Suspense fallback={null}>
+        <Switch>
+          <Route path={"/"} exact component={SettingsRoute} />
+          <Route path={"/Settings/"} component={SettingsRoute} />
+          <Route path={"/Play/"} component={PlayRoute} />
+          <Route component={NotFoundRoute} />
+        </Switch>
+      </Suspense>
+    </MainLayout>
   );
 };
 
